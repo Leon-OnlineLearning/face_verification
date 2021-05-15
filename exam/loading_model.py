@@ -1,13 +1,17 @@
+import numpy as np
+from tensorflow import keras
+import tensorflow as tf
+
 class Singleton_model:
    __model = None
    @staticmethod 
    def getInstance():
-      """ Static access method. """
       if Singleton_model.__model == None:
-         Singleton()
-      return Singleton.__model
+         Singleton_model()
+      return Singleton_model.__model
+
+   
    def __init__(self):
-      """ Virtually private constructor. """
       if Singleton_model.__model != None:
          raise Exception("This class is a singleton!")
       else:
