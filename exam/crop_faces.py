@@ -5,7 +5,7 @@ import numpy as np
 from mtcnn import MTCNN
 import tensorflow as tf
 from tensorflow import keras
-import preprocess_input
+from preprocess_input import preprocess_input
 from loading_model import Singleton_model
 
 
@@ -50,6 +50,7 @@ def crop_faces(video_path):
         if read % 15 == 0:
             face,exist=extract_face(frame)
             if exist:
+                img=preprocess_input.gamma_correction(img)
                 img=cv2.resize(face,(224, 224))
                 img_arr=np.asarray(img,dtype=np.float64)
                 norm_img=preprocess_input(img_arr)

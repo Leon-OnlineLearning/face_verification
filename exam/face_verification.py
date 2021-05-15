@@ -3,7 +3,7 @@ import tensorflow as tf
 import cv2
 import numpy as np
 from mtcnn import MTCNN
-import preprocess_input
+from preprocess_input import preprocess_input
 from loading_model import Singleton_model
 
 
@@ -65,6 +65,7 @@ def is_match(known_embedding, candidate_embedding, thresh=.6):
 taking an image and return the embedding of theat image
 """
 def embedding_calculating(img):
+    img=preprocess_input.gamma_correction(img)
     img=cv2.resize(img,(224, 224))
     img_arr=np.asarray(img,dtype=np.float64)
     norm_img=preprocess_input(img_arr)
