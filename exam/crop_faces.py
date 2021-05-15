@@ -5,6 +5,8 @@ import numpy as np
 from mtcnn import MTCNN
 import tensorflow as tf
 from tensorflow import keras
+import preprocess_input
+from loading_model import Singleton_model
 
 
 detector = MTCNN()
@@ -24,7 +26,8 @@ def extract_face(image):
 def embedding_mean_calculating(faces):
     img_arr=np.asarray(faces,dtype=np.float64)
     tens_img= tf.convert_to_tensor(img_arr)
-    model=keras.models.load_model('./resnet50_triplet_loss_2048.h5', custom_objects={'tf': tf},compile=False)
+    # model=keras.models.load_model('./resnet50_triplet_loss_2048.h5', custom_objects={'tf': tf},compile=False)
+    model=Singleton_model.getInstance()
     embedding=tf.math.l2_normalize(model.predict(tens_img), axis=-1)
     feature=np.mean(embedding, axis=0)
     return(feature)

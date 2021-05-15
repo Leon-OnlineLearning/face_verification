@@ -3,7 +3,8 @@ import tensorflow as tf
 import cv2
 import numpy as np
 from mtcnn import MTCNN
-
+import preprocess_input
+from loading_model import Singleton_model
 
 
 def face_verification(chunk_path,known_embedding):
@@ -68,7 +69,8 @@ def embedding_calculating(img):
     img_arr=np.asarray(img,dtype=np.float64)
     norm_img=preprocess_input(img_arr)
     tens_img= tf.convert_to_tensor(cv2.resize(norm_img,(224,224)))
-    model=keras.models.load_model('./resnet50_triplet_loss_2048.h5', custom_objects={'tf': tf},compile=False)
+    model=Singleton_model.getInstance()
+    # model=keras.models.load_model('./resnet50_triplet_loss_2048.h5', custom_objects={'tf': tf},compile=False)
     embedding=tf.math.l2_normalize(model(np.expand_dims(tens_img, axis=0)), axis=-1)
     return(embedding)
 
