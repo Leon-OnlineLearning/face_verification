@@ -3,9 +3,9 @@ import tensorflow as tf
 import cv2
 import numpy as np
 from mtcnn import MTCNN
-from preprocess_input import preprocess_input
+from preprocess_input import preprocess_input,gamma_correction
 from loading_model import Singleton_model
-
+import logging
 
 def face_verification(chunk_path,known_embedding):
     detector = MTCNN()
@@ -56,6 +56,7 @@ def is_match(known_embedding, candidate_embedding, thresh=.6):
     match=0
     matched=False
     score = tf.norm(known_embedding- candidate_embedding, axis=1)
+    logging.info(score)
     print(score)
     if score <= thresh:
         matched=True
@@ -65,7 +66,7 @@ def is_match(known_embedding, candidate_embedding, thresh=.6):
 taking an image and return the embedding of theat image
 """
 def embedding_calculating(img):
-    img=preprocess_input.gamma_correction(img)
+    img=gamma_correction(img)
     img=cv2.resize(img,(224, 224))
     img_arr=np.asarray(img,dtype=np.float64)
     norm_img=preprocess_input(img_arr)
