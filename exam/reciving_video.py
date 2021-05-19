@@ -6,7 +6,7 @@ from flask import send_from_directory
 from crop_faces import crop_faces
 import numpy as np
 from face_verification import face_verification
- 
+import logging
 UPLOAD_FOLDER = './recordings'
 
 app = Flask(__name__)
@@ -49,4 +49,6 @@ def receving_chunks_during_exam(user_id):
     return "Inavalid video type", status.HTTP_400_BAD_REQUEST
 
 if __name__ == '__main__':
+    logging.basicConfig(filename='debug.log',level=logging.DEBUG)
+
     app.run(host='0.0.0.0',port=50000, debug=True)
