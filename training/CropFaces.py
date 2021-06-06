@@ -5,7 +5,7 @@ import numpy as np
 from tqdm.notebook import tqdm
 from mtcnn import MTCNN
 
-detector = MTCNN()
+
 
 def extract_face(old_path,new_path,required_size=(224, 224)):
     if not os.path.exists(new_path):
@@ -31,6 +31,7 @@ def extract_face(old_path,new_path,required_size=(224, 224)):
                 print(1)
         else:
 	        # detect faces in the image
+            detector = Singleton_MTCNN.getInstance()
             results = detector.detect_faces(image)
 	        # extract the bounding box from the first face
             # for j in range(len(results)):
