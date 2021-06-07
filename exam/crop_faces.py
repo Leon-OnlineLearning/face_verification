@@ -2,16 +2,15 @@ import os
 import cv2
 import shutil
 import numpy as np
-from mtcnn import MTCNN
 import tensorflow as tf
 from tensorflow import keras
 from preprocess_input import preprocess_input,gamma_correction
-from loading_model import Singleton_model
+from loading_model import Singleton_model ,Singleton_MTCNN
 
 
-detector = MTCNN()
 
 def extract_face(image):
+    detector = Singleton_MTCNN.getInstance()
     results = detector.detect_faces(image)
 	# extract the bounding box from the first face
     if len(results):
