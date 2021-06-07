@@ -1,3 +1,11 @@
+to use model with tennsor flow 3.6
+download this file
+https://drive.google.com/drive/folders/1nf2sWh1loXjgnBZ0FycoZlOMKFbX2Sds?usp=sharing
+extract it here
+
+
+
+older mdoels
 #this folder you find in it three mdoels one of them we use in transfer learning "rcmalli_vggface_tf_notop_resnet50.h5"
 #and the otehr model "resnet50_triplet_loss_2048.h5" this model that we use them in the production 
 https://drive.google.com/drive/u/0/folders/1nKeLbS_tqGcA8tF683sUK-5zDF06cIV6

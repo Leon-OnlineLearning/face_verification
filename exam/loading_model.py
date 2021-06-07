@@ -20,8 +20,8 @@ class Singleton_model:
       if Singleton_model.__model != None:
          raise Exception("This class is a singleton!")
       else:
-         Singleton_model.__model = keras.models.load_model('./exam/resnet50_triplet_loss_2048.h5', custom_objects={'tf': tf},compile=False)
-         # Singleton_model.__model = keras.models.load_model('.\\auth_model2')
+         # Singleton_model.__model = keras.models.load_model('./exam/resnet50_triplet_loss_2048.h5', custom_objects={'tf': tf},compile=False)
+         Singleton_model.__model = keras.models.load_model('.\\auth_model')
 
 
 
