@@ -3,3 +3,5 @@ recordings/*
 exam/resnet50_triplet_loss*
 resnet50_triplet_loss_2048.h5:Zone.Identifier
 debug.log
+auth_model*
+.vscode/settings.json

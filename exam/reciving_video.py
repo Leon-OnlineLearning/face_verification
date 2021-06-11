@@ -48,6 +48,13 @@ def receving_chunks_during_exam(user_id):
     #if there is no file or bad file recived return 400
     return "Inavalid video type", status.HTTP_400_BAD_REQUEST
 
+@app.before_first_request
+def initialize():
+    # Singleton_model.getInstance()
+    # Singleton_MTCNN.getInstance()
+    print ("modeles loaded")
+
+
 if __name__ == '__main__':
     logging.basicConfig(filename='debug.log',level=logging.DEBUG)
 
