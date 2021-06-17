@@ -1,4 +1,6 @@
-tensorflow==2.4.1
+tensorflow==2.4.2
 mtcnn==0.1.0
 opencv-python==4.5.1.48
 Flask==1.1.2
+flask-api==2.0
+werkzeug==1.0.1

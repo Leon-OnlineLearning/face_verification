@@ -56,6 +56,6 @@ def initialize():
 
 
 if __name__ == '__main__':
-    logging.basicConfig(filename='debug.log',level=logging.DEBUG)
+    # logging.basicConfig(filename='debug.log',level=logging.DEBUG)
 
-    app.run(host='0.0.0.0',port=50000, debug=True)
+    app.run(host='0.0.0.0',port=50000)
