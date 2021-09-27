@@ -15,3 +15,6 @@ And you can also view the final presentaion slides [here_pages 33_41](https://do
 
 3. then you can write simple script python to test our model which has acurracy more than 98% in verifing faces in real time 
 "remember that you should read the chapter first to understand what you should do to write this script"
+
+
+![alt text](https://github.com/Leon-OnlineLearning/face_verification/blob/main/pipline_model.png?raw=true)
